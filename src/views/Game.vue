@@ -11,7 +11,7 @@ const router = useRouter();
 // 開始カウントダウン用
 const count = ref<number>(3);
 // 残り時間
-const remainingSeconds = ref<number>(10);
+const remainingSeconds = ref<number>(60);
 // 現在の表示パターン
 const currentCircles = ref<CircleInfo[]>([]);
 // 正解or不正解 結果
@@ -324,11 +324,12 @@ header {
   box-shadow: 0px 8px 16px -7px #777;
 }
 .title {
-  font-size: x-large;
+  font-size: 32px;
 }
 .remaining-seconds {
   /* レイアウト */
   margin-right: 8px;
+  font-size: 20px;
   font-weight: 800;
 }
 .quit-button {
@@ -341,6 +342,7 @@ header {
   padding: 6px 14px;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 16px;
 }
 .quit-button:hover {
   background: #333;

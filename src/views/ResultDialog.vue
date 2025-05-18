@@ -297,6 +297,7 @@ function restartGame() {
   place-items: center;
   color: #fff;
   border-radius: 5px;
+  font-size: 16px;
 }
 .restart-button:hover {
   /* デザイン */
@@ -311,6 +312,7 @@ function restartGame() {
   padding: 8px 20px;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 16px;
 }
 .quit-button:hover {
   background: #333;
