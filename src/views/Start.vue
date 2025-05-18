@@ -26,6 +26,7 @@ function showHowTo() {
 </script>
 
 <template>
+  <div class="background"></div>
   <div class="main">
     <h1 class="title">順番数字</h1>
     <button @click="gameStart" class="start-button">スタート</button>
@@ -35,6 +36,16 @@ function showHowTo() {
 </template>
 
 <style scoped>
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/background_image.jpg");
+  background-repeat: repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 .main {
   /* レイアウト */
   display: flex;
