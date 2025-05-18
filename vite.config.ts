@@ -11,7 +11,8 @@ export default defineConfig({
       manifest: {
         name: '順番数字ゲーム',
         short_name: '順番数字',
-        start_url: '/',
+        start_url: '/order_number/',
+        scope: '/order_number/',
         display: 'standalone',
         background_color: '#ffffff',
         theme_color: '#42b883',
