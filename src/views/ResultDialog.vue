@@ -109,7 +109,7 @@ function quitGame() {
  */
 function restartGame() {
   // ゲームリセット（画面更新）
-  router.go(0);
+  router.replace(`/game?restart=${Date.now()}`);
 };
 
 </script>
