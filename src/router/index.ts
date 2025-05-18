@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import App from '../App.vue'
 import Start from '../views/Start.vue'
 import Game from '../views/Game.vue'
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, computed, defineProps } from 'vue'
+import { onMounted, ref, defineProps } from 'vue'
 import { useRouter } from 'vue-router';
 import type { GameResult } from '../types/types';
 import { STORAGE_KEY, GAME_RESULT_KEY } from '../constants/constants';
