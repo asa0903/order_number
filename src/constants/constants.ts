@@ -5,6 +5,13 @@ import type {
   CircleInfo,
 } from '../types/types';
 
+// 時間定数
+export const TIME_CONSTANTS = {
+  limitTime: 60,
+  waringSeconds: 30,
+  dangerSeconds: 10,
+}
+
 // ゲーム結果情報キー定数
 export const GAME_RESULT_KEY = {
   correct: 'correct',

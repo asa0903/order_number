@@ -2,7 +2,7 @@
 import { useRouter } from 'vue-router';
 import { ref, onMounted, computed } from 'vue';
 import type { CircleInfo, GameResult } from '../types/types';
-import { DIFFICULTY_PARAM, DESIGN_PATTERNS, COLOR_PATTERNS } from '../constants/constants';
+import { DIFFICULTY_PARAM, DESIGN_PATTERNS, COLOR_PATTERNS, TIME_CONSTANTS } from '../constants/constants';
 import { sleepMilliSeconds } from '../util/sleep';
 import ResultDialog from './ResultDialog.vue';
 
@@ -11,7 +11,7 @@ const router = useRouter();
 // 開始カウントダウン用
 const count = ref<number>(3);
 // 残り時間
-const remainingSeconds = ref<number>(60);
+const remainingSeconds = ref<number>(TIME_CONSTANTS.limitTime);
 // 現在の表示パターン
 const currentCircles = ref<CircleInfo[]>([]);
 // 正解or不正解 結果
@@ -30,26 +30,29 @@ const secondsForDisplay = computed(() => {
 });
 // 残り秒数 文字色
 const secondsColor = computed(() => {
-  if(remainingSeconds.value <= 10) {
+  if(remainingSeconds.value <= TIME_CONSTANTS.dangerSeconds) {
     return '#f11';
   }
-  if(remainingSeconds.value <= 30) {
+  if(remainingSeconds.value <= TIME_CONSTANTS.waringSeconds) {
     return '#e50';
   }
   return '#111';
 });
 // 現在の難易度を示す
-const difficultyIndex = computed(() => {
-  if(gameResult.value.correct <= 5) {
-    return 0;
-  }else if(gameResult.value.correct <= 10) {
-    return 1;
-  }else if(gameResult.value.correct <= 15) {
-    return 2;
-  }else {
-    return 3;
-  }
-});
+const difficultyIndex = computed(() =>
+  getDifficultyIndex(gameResult.value.correct)
+);
+
+/**
+ * 難易度定数用インデックス取得処理
+ * @param correctCount 現在の正解数
+ */
+function getDifficultyIndex(correctCount: number): number {
+  if (correctCount <= 5) return 0;
+  if (correctCount <= 10) return 1;
+  if (correctCount <= 15) return 2;
+  return 3;
+}
 
 /**
  * 最初の開始カウントダウン処理
