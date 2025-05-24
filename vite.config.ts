@@ -15,7 +15,7 @@ export default defineConfig({
         scope: '/order_number/',
         display: 'standalone',
         background_color: '#ffffff',
-        theme_color: '#42b883',
+        theme_color: '#ffffff',
         icons: [
           {
             src: 'icons/icon-192.png',
