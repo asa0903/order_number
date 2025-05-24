@@ -10,18 +10,18 @@ export const TIME_CONSTANTS = {
   limitTime: 60,
   waringSeconds: 30,
   dangerSeconds: 10,
-}
+} as const;
 
 // ゲーム結果情報キー定数
 export const GAME_RESULT_KEY = {
   correct: 'correct',
   wrong: 'wrong',
-}
+} as const;
 
 // ローカルストレージ（セッション）用キー定数
 export const STORAGE_KEY = {
   bestScore: 'bestScore',
-};
+} as const;
 
 // 難易度パラメータ定数
 export const DIFFICULTY_PARAM = [
@@ -41,7 +41,7 @@ export const DIFFICULTY_PARAM = [
     patternIndex: 16,
     numberRange: 100,
   },
-];
+] as const;
 
 // 色のパターン定数
 export const COLOR_PATTERNS: string[] = [
@@ -53,7 +53,7 @@ export const COLOR_PATTERNS: string[] = [
   '#33cfff', // 水色
   '#ff8844', // オレンジ
   '#f1c40f', // 黄緑
-];
+] as const;
 
 // デモ用レイアウトパターン定数
 export const DEMO_PATTERNS: CircleInfo[][] = [
@@ -62,7 +62,7 @@ export const DEMO_PATTERNS: CircleInfo[][] = [
     { number: 1, top: '0px', left: '40%', width: '50px', height: '50px', fontSize: '18px', backgroundColor: COLOR_PATTERNS[1] },
     { number: 3, top: '0px', left: '65%', width: '50px', height: '50px', fontSize: '18px', backgroundColor: COLOR_PATTERNS[2] },
   ],
-];
+] as const;
 
 // レイアウトパターン定数（位置・大きさなど）
 export const DESIGN_PATTERNS: CircleInfo[][] = [
@@ -169,4 +169,4 @@ export const DESIGN_PATTERNS: CircleInfo[][] = [
     { number: 0, top: '260px', left: '30px', width: '110px', height: '110px', fontSize: '42px', backgroundColor: '#111' },
     { number: 0, top: '320px', left: '160px', width: '90px', height: '90px', fontSize: '34px', backgroundColor: '#111' }
   ],
-];
+] as const;
