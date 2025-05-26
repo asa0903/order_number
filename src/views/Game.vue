@@ -91,7 +91,7 @@ function startGame(){
   // 残り時間のカウントダウン開始
   startTimer();
   // 円を生成
-  generateCircle();
+  currentCircles.value = generateCircle();
 }
 
 /**
@@ -99,13 +99,21 @@ function startGame(){
  */
 function generateCircle() {
   // 現状の円をリセット
-  currentCircles.value = [];
+  resetCircle();
   // ランダムでパターン定数から選択
-  currentCircles.value = pickRandomPattern();
+  const pattern = pickRandomPattern();
   // 色をランダムに設定
-  currentCircles.value = configureRandomColor(currentCircles.value);
+  const configuredColorPattern = configureRandomColor(pattern);
   // 数字をランダムに設定
-  currentCircles.value = configureRandomNumber(currentCircles.value);
+  const configuredNumberPattern = configureRandomNumber(configuredColorPattern);
+  return configuredNumberPattern;
+}
+
+/**
+ * 現状の円をリセットする処理
+ */
+function resetCircle() {
+  currentCircles.value = [];
 }
 
 /**
@@ -231,7 +239,7 @@ async function onClickCircle(index: number){
       isCorrect.value = true;
       await sleepMilliSeconds(500);
       // 再度円を生成
-      generateCircle();
+      currentCircles.value = generateCircle();
       // 正解非表示
       isCorrect.value = null;
     }
@@ -243,7 +251,7 @@ async function onClickCircle(index: number){
     isCorrect.value = false;
     await sleepMilliSeconds(500);
     // 再度円を生成
-    generateCircle();
+    currentCircles.value = generateCircle();
     // 正解非表示
     isCorrect.value = null;
   }
@@ -267,7 +275,7 @@ function judgeCorrect(index: number): boolean {
  * @param index クリックされた要素のindex
  */
 function deleteClickedCircle(index: number) {
-  currentCircles.value.splice(index, 1);
+  currentCircles.value = currentCircles.value.filter((_, i) => i !== index);
 }
 
 </script>
